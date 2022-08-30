@@ -8,32 +8,23 @@ export function main() {
     return;
   }
 
-  const vs = `#version 300 es
-    // an attribute is an input (in) to a vertex shader.
-    // It will receive data from a buffer
-    in vec4 a_position;
+  const vs = `#version 100 
+    attribute vec4 a_position;
 
-    // all shaders have a main function
     void main() {
-
-      // gl_Position is a special variable a vertex shader
-      // is responsible for setting
       gl_Position = a_position;
     }
   `;
 
-  const fs = `#version 300 es
+  const fs = `#version 100 
     precision highp float;
 
     uniform vec2 u_resolution;
     uniform vec2 u_mouse;
     uniform float u_time;
 
-    // we need to declare an output for the fragment shader
-    out vec4 outColor;
-
     void main() {
-      outColor = vec4(fract((gl_FragCoord.xy - u_mouse) / u_resolution), fract(u_time), 1);
+      gl_FragColor = vec4(fract((gl_FragCoord.xy - u_mouse) / u_resolution), fract(u_time), 1);
     }
   `;
 
