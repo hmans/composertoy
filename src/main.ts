@@ -1,4 +1,25 @@
+import { $, compileShader, Master } from "shader-composer";
 import "./style.css";
+
+const ToyMaster = Master({
+  name: "ComposerToy Master",
+  vertex: {
+    header: $`attribute vec4 a_position;`,
+    body: $`
+      gl_Position = a_position;
+    `,
+  },
+  fragment: {
+    header: $`
+      uniform vec2 u_resolution;
+      uniform vec2 u_mouse;
+      uniform float u_time;
+    `,
+    body: $`
+      gl_FragColor = vec4(fract((gl_FragCoord.xy - u_mouse) / u_resolution), fract(u_time), 1);
+    `,
+  },
+});
 
 export function main() {
   // Get A WebGL context
@@ -8,28 +29,13 @@ export function main() {
     return;
   }
 
-  const vs = `#version 100 
-    attribute vec4 a_position;
-
-    void main() {
-      gl_Position = a_position;
-    }
-  `;
-
-  const fs = `#version 100 
-    precision highp float;
-
-    uniform vec2 u_resolution;
-    uniform vec2 u_mouse;
-    uniform float u_time;
-
-    void main() {
-      gl_FragColor = vec4(fract((gl_FragCoord.xy - u_mouse) / u_resolution), fract(u_time), 1);
-    }
-  `;
+  const [shader, meta] = compileShader(ToyMaster);
 
   // setup GLSL program
-  const program = webglUtils.createProgramFromSources(gl, [vs, fs]);
+  const program = webglUtils.createProgramFromSources(gl, [
+    shader.vertexShader,
+    shader.fragmentShader,
+  ]);
 
   // look up where the vertex data needs to go.
   const positionAttributeLocation = gl.getAttribLocation(program, "a_position");

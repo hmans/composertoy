@@ -1,8 +1,14 @@
 lockfileVersion: 5.4
 
 specifiers:
+  shader-composer: ^0.3.2
+  three: ^0.143.0
   typescript: ^4.6.4
   vite: ^3.0.7
+
+dependencies:
+  shader-composer: 0.3.2_three@0.143.0
+  three: 0.143.0
 
 devDependencies:
   typescript: 4.8.2
@@ -228,6 +234,10 @@ packages:
       esbuild-windows-arm64: 0.14.54
     dev: true
 
+  /fp-ts/2.12.2:
+    resolution: {integrity: sha512-v8J7ud+nTkP5Zz17GhpCsY19wiRbB9miuj61nBcCJyDpu52zs9Z4O7OLDfYoKFQMJ9EsSZA7W1vRgC1d3jy5qw==}
+    dev: false
+
   /fsevents/2.3.2:
     resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==}
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
@@ -293,6 +303,15 @@ packages:
       fsevents: 2.3.2
     dev: true
 
+  /shader-composer/0.3.2_three@0.143.0:
+    resolution: {integrity: sha512-l06/hNLGEdVW1PlFUatk1axdeOvY3Se1zBulHVxBbucXwtWgX13Hx5SuHeYOe9ahk7+S2fzK71QlRjUDhfAEsQ==}
+    peerDependencies:
+      three: '>=0.141.0'
+    dependencies:
+      fp-ts: 2.12.2
+      three: 0.143.0
+    dev: false
+
   /source-map-js/1.0.2:
     resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==}
     engines: {node: '>=0.10.0'}
@@ -302,6 +321,10 @@ packages:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
     dev: true
+
+  /three/0.143.0:
+    resolution: {integrity: sha512-oKcAGYHhJ46TGEuHjodo2n6TY2R6lbvrkp+feKZxqsUL/WkH7GKKaeu6RHeyb2Xjfk2dPLRKLsOP0KM2VgT8Zg==}
+    dev: false
 
   /typescript/4.8.2:
     resolution: {integrity: sha512-C0I1UsrrDHo2fYI5oaCGbSejwX4ch+9Y5jTQELvovfmFkK3HHSZJB8MSJcWLmCUBzQBchCrZ9rMRV6GuNrvGtw==}
