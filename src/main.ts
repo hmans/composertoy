@@ -1,6 +1,6 @@
 import { compileShader } from "shader-composer";
 import "./style.css";
-import { ToyMaster } from "./ToyMaster";
+import { ToyMaster } from "./lib/ToyMaster";
 
 export function main() {
   // Get A WebGL context

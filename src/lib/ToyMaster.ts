@@ -123,7 +123,7 @@ export const ToyMaster = () =>
       }
     `,
       body: glsl`
-      mainImage(gl_FragColor, gl_FragCoord.xy);
-    `,
+        mainImage(gl_FragColor, gl_FragCoord.xy);
+      `,
     },
   });
