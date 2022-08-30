@@ -11,12 +11,12 @@ const ToyMaster = Master({
   },
   fragment: {
     header: $`
-      uniform vec2 u_resolution;
-      uniform vec2 u_mouse;
-      uniform float u_time;
+      uniform vec2 iResolution;
+      uniform vec2 iMouse;
+      uniform float iTime;
     `,
     body: $`
-      gl_FragColor = vec4(fract((gl_FragCoord.xy - u_mouse) / u_resolution), fract(u_time), 1);
+      gl_FragColor = vec4(fract((gl_FragCoord.xy - iMouse) / iResolution), fract(iTime), 1);
     `,
   },
 });
@@ -41,9 +41,9 @@ export function main() {
   const positionAttributeLocation = gl.getAttribLocation(program, "a_position");
 
   // look up uniform locations
-  const resolutionLocation = gl.getUniformLocation(program, "u_resolution");
-  const mouseLocation = gl.getUniformLocation(program, "u_mouse");
-  const timeLocation = gl.getUniformLocation(program, "u_time");
+  const resolutionLocation = gl.getUniformLocation(program, "iResolution");
+  const mouseLocation = gl.getUniformLocation(program, "iMouse");
+  const timeLocation = gl.getUniformLocation(program, "iTime");
 
   // Create a vertex array object (attribute state)
   const vao = gl.createVertexArray();
